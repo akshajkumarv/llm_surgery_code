@@ -4,7 +4,7 @@
 As shown in **Figure 1**, the activation patterns remain consistent across the three datasets— $D^{\text{unl}}$, $D^{\text{upd}}$, and $D^{\text{rtn}}$—for both the *off-the-shelf* Llama2-7B and **θ**<sup>pre</sup>. This is likely because Llama2-7B was pretrained on original Wikipedia biographies ($D^{\text{unl}}$), as well as OpenWebText and RedPajama-v1 ($D^{\text{rtn}}$). The same knowledge is reinforced in **θ**<sup>pre</sup> prior to LLM Surgery, resulting in highly similar activation patterns for *off-the-shelf* Llama2-7B and **θ**<sup>pre</sup>. After LLM Surgery, however, **θ**<sup>surgery</sup> shows distinct activation patterns across $D^{\text{unl}}$ and $D^{\text{upd}}$, as LLM Surgery modifies **θ**<sup>pre</sup> to unlearn $D^{\text{unl}}$ and incorporate $D^{\text{upd}}$, while preserving its performance on $D^{\text{rtn}}$. As a result, the activation patterns on $D^{\text{rtn}}$ remain similar between **θ**<sup>pre</sup> and **θ**<sup>surgery</sup>.
 
 <p align="center">
-  <img src="./images/llm_surgery.png" alt="Activation Pattern Analysis" width="600"/>
+  <img src="./images/llm_surgery.png" alt="Activation Pattern Analysis (./images/llm_surgery.png)" width="600"/>
 </p>
 
 **Figure 1:** Visualization of activation patterns across three datasets— $D^{\text{unl}}$, $D^{\text{upd}}$, and $D^{\text{rtn}}$—for three different models. (a) Top row shows the activation patterns for *off-the-shelf* Llama2-7B, (b) middle row represents **θ**<sup>pre</sup>, and (c) bottom row represents **θ**<sup>surgery</sup>.
