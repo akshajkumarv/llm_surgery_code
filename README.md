@@ -29,3 +29,31 @@ The retain dataset consists of 20,000 Multiple Choice Question Answering (MCQA) 
 - These examples are located in the `qa` column of the CSV file.
 
 The CSV file can be found at `./data/gpt4_evaluation_benchmark_2200owt10k_mcqa.csv`.
+
+## Prompt
+### Generate Fictitious Biographies 
+
+User prompt: 
+```
+Create a completely fictitious Wikipedia-style biography for <concept>. Assign <concept> the profession of a <selected_profession>. Use real-world names for locations, institutions, and organizations, but ensure that all details about their achievements, career history, and personal life are entirely fictional and inaccurate. The content must be entirely fabricated, with no true information or sentences derived from any existing sources.
+```
+
+### Generate MCQA 
+
+User prompt: 
+```
+Here is a text from <Wikipedia/Web>: <text>
+
+Generate 10 multiple-choice questions and answers about <concept>. Ensure the content is strictly grounded in the provided text. Each question must have three options, and the correct answer must be labeled. Each question and answer must be detailed, self-contained, and not refer back to the text directly (e.g., avoid phrases like 'referenced in the text' or 'from the text'). If any specific details such as names, book titles, or other proper nouns are mentioned, use the full name or title as provided in the text. Make sure the author’s full name appears in the question content. Return the content strictly as a list of dictionaries with the structure: 
+
+[
+  {
+    "Q": "question1",
+    "option1": "answer",
+    "option2": "answer",
+    "option3": "answer",
+    "correct answer": "option2"
+  }, 
+  ...
+]
+```
