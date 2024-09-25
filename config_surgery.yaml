@@ -1,0 +1,52 @@
+dataloader:
+  max_seq_len: 4096
+  data_split: 0.5
+  retain_train_split: 2079 #1044
+  retain_test_split: 2079 #1044
+  shuffle: true
+  drop_last: false
+  num_workers: 4
+  pin_memory: true
+model:
+  do_sample: true # Used to supress warnings
+  temperature: 0.0 # Used to supress warnings
+  use_cache: false
+optimizer:
+  beta1: 0.9
+  beta2: 0.95
+  lr: 2.0e-04
+  weight_decay: 0.01
+  eps: 1.0e-08
+  decay_norm_and_bias: false
+  decay_embeddings: false
+  overwrite_lr: false
+sharding:
+  use_bf16: true
+  sharding_strategy: fsdp
+  param_dtype: bfloat16
+  reduce_dtype: float32
+  buffer_dtype: float32
+  limit_all_gathers: true
+  use_orig_params: false
+scheduler:
+  max_lr: 1.0
+  min_lr: 1.0
+  num_cycles: 0.5
+train:
+  model_path: /path/to/your/llama2-7b-model
+  root_dir: ./surgery/cptr_bs_8_wikibs_1_wikiep_1_wikiiters_8_lr_0.00015_warmup_10_steps_960/
+  ckp_read_dir: ./cptr/bs_8_wikibs_1_wikiep_1_wikiiters_8_lr_0.00015_warmup_10_steps_960/checkpoints/step_960/
+  ckp_interval: 10000000000000000
+  report_interval: 8
+  seed: 42
+  bsize: 1
+  seq_len: 4096
+  clip_th: 1.0
+  enable_grad_checkpoint: true
+  log_to_tb: true
+  num_training_steps: 120
+  num_warmup_steps: 0
+  unlearn_weight: 0.1
+  edit_unlearn_weight: 0.1
+  edit_update_weight: 2.0
+  retain_weight: 0.5
