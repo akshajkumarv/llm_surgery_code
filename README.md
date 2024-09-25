@@ -57,3 +57,7 @@ Generate 10 multiple-choice questions and answers about <concept>. Ensure the co
   ...
 ]
 ```
+
+## LLM Surgery
+
+To perform LLM Surgery, run the `train.py` script
